@@ -1,6 +1,6 @@
 {% set name = "torsiondrive" %}
-{% set version = "0.9.5" %}
-{% set sha256 = "f98acbbc63d352a6ab436df72ad38500af34da89e313864c855bcedb1fa35191" %}
+{% set version = "0.9.6" %}
+{% set sha256 = "5b8b0f5c8e90f553f2fddfdd4d6e74d98af26b0c12d7a0c12536065a771e67bf" %}
 
 package:
   name: {{ name|lower }}
