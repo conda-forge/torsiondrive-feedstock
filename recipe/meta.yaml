@@ -18,16 +18,18 @@ build:
   entry_points:
     - torsiondrive-launch = torsiondrive.launch:main
     - torsiondrive-api = torsiondrive.td_api:main
+    - torsiondrive-plot1d = torsiondrive.tools.plot_1d:main
+    - torsiondrive-plot2d = torsiondrive.tools.plot_2d:main
 
 requirements:
   host:
-    - python >=3
+    - python >=3.6
     - setuptools
     - pip
   run:
     - {{ pin_compatible('numpy', lower_bound='1.11') }}
-    - geometric
-    - python >=3
+    - geometric >= 0.9.7
+    - python >=3.6
 
 test:
   imports:
