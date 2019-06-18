@@ -28,7 +28,7 @@ requirements:
     - pip
   run:
     - {{ pin_compatible('numpy', lower_bound='1.11') }}
-    - geometric >= 0.9.7
+    - geometric >=0.9.7
     - python >=3.6
 
 test:
