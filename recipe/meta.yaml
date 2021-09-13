@@ -1,6 +1,6 @@
 {% set name = "torsiondrive" %}
-{% set version = "0.9.8.1" %}
-{% set sha256 = "96218636648ce7b5bf1864a4366980d4a27bfeb45ca890bdf0ff1ac14725a1f3" %}
+{% set version = "1.1.0" %}
+{% set sha256 = "5e8c064b875c301dc546d3adac479af17d649e2ac7bdb753fd6ff8a1521d5294" %}
 
 package:
   name: {{ name|lower }}
@@ -14,7 +14,7 @@ source:
 build:
   noarch: python
   number: 0
-  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
+  script: {{ PYTHON }} -m pip install . --no-deps -vv
   entry_points:
     - torsiondrive-launch = torsiondrive.launch:main
     - torsiondrive-api = torsiondrive.td_api:main
@@ -40,7 +40,7 @@ about:
   license: MIT
   license_family: MIT
   license_file: LICENSE
-  summary: 'Dihedral scanner with wavefront propagation'
+  summary: Dihedral scanner with wavefront propagation
   dev_url: https://github.com/lpwgroup/torsiondrive
 
 extra:
