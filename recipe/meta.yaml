@@ -10,10 +10,12 @@ source:
   fn: {{ name }}-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
+  patches:
+    - 0001-py312-and-np-v2-compat.patch
 
 build:
   noarch: python
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . --no-deps -vv
   entry_points:
     - torsiondrive-launch = torsiondrive.launch:main
@@ -23,17 +25,25 @@ build:
 
 requirements:
   host:
-    - python >=3.6
+    - python {{ python_min }}
     - setuptools
     - pip
   run:
-    - {{ pin_compatible('numpy', lower_bound='1.11') }}
+    - {{ pin_compatible('numpy', lower_bound='1.11', upper_bound='3.0') }}
     - geometric >=0.9.7
-    - python >=3.6
+    - python >={{ python_min }}
 
 test:
+  requires:
+    - python {{ python_min }}
+    - pytest
+    - matplotlib
+    - psi4
+    - ndcctools
   imports:
     - torsiondrive
+  commands:
+    - pytest --pyargs torsiondrive
 
 about:
   home: https://github.com/lpwgroup/torsiondrive
